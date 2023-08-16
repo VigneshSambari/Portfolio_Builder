@@ -1,7 +1,4 @@
-import "@styles/globals.css"
-
-import NavBar from "@components/NavBar"
-
+import "@styles/globals.css";
 
 
 export const metadata = {
@@ -19,7 +16,6 @@ export default function RootLayout({ children }) {
           </div>
 
           <main className='app'>
-            <NavBar />
             {children}
         </main>
       </body>

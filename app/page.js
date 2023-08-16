@@ -1,9 +1,12 @@
-
+import SideBar from "@components/SideBar"
 
 export default function Home() {
   return (
-    <div >
-      Home
+    <div className="flex">
+      <SideBar />
+      <div>
+        Home
+      </div>
     </div>
   )
 }
