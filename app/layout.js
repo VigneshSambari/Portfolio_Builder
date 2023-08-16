@@ -13,10 +13,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-          <main className="flex flex-col items-center justify-start">
+          <div className="main">
+            <div className="gradient">
+            </div>
+          </div>
+
+          <main className='app'>
             <NavBar />
             {children}
-          </main>
+        </main>
       </body>
     </html>
   )
