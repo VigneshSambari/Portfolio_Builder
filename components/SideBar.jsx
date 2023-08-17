@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { BsArrowLeftShort, BsSearch, BsPerson, } from './../node_modules/react-icons/bs/index.esm';
 import { RiDashboard2Fill, RiPaypalFill, } from './../node_modules/react-icons/ri/index.esm';
 import { AiOutlineLogout, AiOutlineSetting } from './../node_modules/react-icons/ai/index.esm';
-function SideBar(){
-
+const SideBar = () => {
     const [isSideBarOpen, setSideBarOpen] = useState(true);
     const Menus = [
         {title: "Dashboard", icon: <RiDashboard2Fill />},
@@ -18,10 +17,10 @@ function SideBar(){
     ];
 
     return (
-        <div className="flex ">
+        <div className="flex">
             <div className={`sidebar ${isSideBarOpen?"w-44 sm:w-52 text-[14px] sm:text-[15px] pt-3":"w-16"}`}>
                 <BsArrowLeftShort className={`bg-white text-primary-color text-2xl rounded-full absolute 
-                    cursor-pointer top-9 -right-2 border-primary-color border-2 
+                    cursor-pointer bottom-5 -right-2 border-primary-color border-2 
                     ${!isSideBarOpen&&"rotate-180"}`}
                     onClick={()=>setSideBarOpen(!isSideBarOpen)}
                 />
@@ -41,7 +40,7 @@ function SideBar(){
                                         <span className='text-[20px] flex float-left'>
                                             {menu.icon}
                                         </span>
-                                        <span className={` flex-1 ${!isSideBarOpen&&"hidden"} duration-200`}>{menu.title}</span>
+                                        <span className={` flex-1 ${!isSideBarOpen&&"hidden"} duration-200 text-base`}>{menu.title}</span>
                                     </li>
                                 </>
                             ))
