@@ -61,24 +61,32 @@
             px-5 py-3 sm:px-10 sm:py-4 mx-auto z-20;
   }
 
-
-.gif-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-@keyframes playOnce {
-  0% {
-    opacity: 0; 
+  .justify-items-center{
+    @apply justify-center items-center;
   }
-  100% {
-    opacity: 1; 
-  }
-}
 
-.animate-once {
-  animation: playOnce 1s linear; /* Adjust duration as needed */
-}
+  .auth-overlay {
+    @apply fixed right-0 left-0 top-0 w-full h-full flex justify-items-center 
+            bg-primary-color backdrop-blur-sm bg-opacity-30 z-30;
+  }
+
+  .gif-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  @keyframes playOnce {
+    0% {
+      opacity: 0; 
+    }
+    100% {
+      opacity: 1; 
+    }
+  }
+
+  .animate-once {
+    animation: playOnce 1s linear; /* Adjust duration as needed */
+  }
 
