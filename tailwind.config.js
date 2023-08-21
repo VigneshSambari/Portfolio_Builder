@@ -8,8 +8,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        satoshi: ['Satoshi', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        serif: ['PT Serif'],
+        opensans: ['Open Sans'],
+        nunito: ['Nunito Sans'],
+        poppins: ['Poppins'],
+        inter: ['Inter'],
+        andika: ['Andika']
       },
       colors: {
         "primary-color": "#B98DFE",
