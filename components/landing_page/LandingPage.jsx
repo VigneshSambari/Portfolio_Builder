@@ -8,8 +8,10 @@ import { Discover,Present,HelloAnim,EditAnim,EditAnim1,Success,CreateAnim } from
 import CarouselSlider from "./CarousalSlider";
 import LottieAnim from "@components/utils/LottieAnim";
 import { landingPageLiterals } from "@constants";
-import SignUp from "@components/sign_up/Signup";
+import SignUp from "@components/auth/sign_up/SignUp";
 import { NavContext } from "@context_handler/nav_context";
+import { entryScreenBackground } from "@public";
+import SignIn from "@components/auth/sign_in/SignIn";
 
 
 const LandingPage = () => {
@@ -35,14 +37,12 @@ const LandingPage = () => {
                 
             </div>
             <div>
-                <img src="/images/landing_page/background_2.jpeg" 
+                <img src={entryScreenBackground} 
                     className="fixed right-0 top-0 bottom-0 w-full h-full -z-10"
                 />
             </div>
-            {component!=="signup"?<></>:
-            <div className={`auth-overlay relative`}>
-                <SignUp />
-            </div>}
+            {component=="signup" && <div className={`auth-overlay relative`}><SignUp /></div>}
+            {component=="signin" && <div className={`auth-overlay relative`}><SignIn /></div>}
         </div>
         
         

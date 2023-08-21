@@ -11,5 +11,8 @@ export const landingPageLiterals = {
 export const websiteTitle = "Portfolio Builder";
 
 export const signUpTitle = `Sign up to ${websiteTitle}`;
-export const signUpWithGoogle = `Sign up with Google`;
 export const signUpTermsAndPolicy = "Creating an account means you're okay with our Terms and Policies.";
+export const signUpWelcomeText = "Craft Your Story, Share Your Journey – Get Started with Your Portfolio Today!";
+
+export const signInTitle = `Sign in to ${websiteTitle}`;
+export const signInWelcomeText = "Welcome Back! Let's Continue Building Your Portfolio.";

@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { BsArrowLeftShort, BsSearch, BsPerson, } from './../node_modules/react-icons/bs/index.esm';
 import { RiDashboard2Fill, RiPaypalFill, } from './../node_modules/react-icons/ri/index.esm';
 import { AiOutlineLogout, AiOutlineSetting } from './../node_modules/react-icons/ai/index.esm';
+
+import { logoUrl } from "@public";
+
 const SideBar = () => {
     const [isSideBarOpen, setSideBarOpen] = useState(true);
     const Menus = [
@@ -26,7 +29,7 @@ const SideBar = () => {
                 />
                 <div className='flex flex-col justify-start items-center  m-auto'>
                     <Link href="/">
-                        <img src="/logo/logo.svg"  className="w-36 h-8 object-contain" placeholder='logo'/>
+                        <img src={logoUrl}  className="w-36 h-8 object-contain" placeholder='logo'/>
                     </Link>
                 </div>
                 <div className="mt-5">
