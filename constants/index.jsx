@@ -7,3 +7,9 @@ export const landingPageLiterals = {
     we're here to help you tell your story in a captivating and memorable way.`
 }
 
+
+export const websiteTitle = "Portfolio Builder";
+
+export const signUpTitle = `Sign up to ${websiteTitle}`;
+export const signUpWithGoogle = `Sign up with Google`;
+export const signUpTermsAndPolicy = "Creating an account means you're okay with our Terms and Policies.";
