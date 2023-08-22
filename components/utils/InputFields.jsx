@@ -2,7 +2,7 @@ export const SimpleInputField = ({id, type, placeholder, title}) => {
     return(
         <div className="flex flex-wrap -mx-3 mb-3">
             <div className="w-full px-3">
-            <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2" for={id}>
+            <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor={id}>
                     {title}
             </label>
             <input className="appearance-none block w-full bg-primary-light-color bg-opacity-40 text-gray-700 border 

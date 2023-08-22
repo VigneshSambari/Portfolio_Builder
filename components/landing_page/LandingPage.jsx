@@ -1,22 +1,33 @@
 "use client";
 
 import { useContext, useEffect, useState } from "react";
-import { AiOutlineCloseCircle } from "react-icons/ai/index.esm";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 import { Discover,Present,HelloAnim,EditAnim,EditAnim1,Success,CreateAnim } from "@assets";
 import CarouselSlider from "./CarousalSlider";
-import LottieAnim from "@components/utils/LottieAnim";
 import { landingPageLiterals } from "@constants";
 import SignUp from "@components/auth/sign_up/SignUp";
-import { NavContext } from "@context_handler/nav_context";
+import { NavContext } from "@context_provider/nav_context";
 import { entryScreenBackground } from "@public";
 import SignIn from "@components/auth/sign_in/SignIn";
+import { dashBoardRoutes } from "@constants/routeHelpers";
+
 
 
 const LandingPage = () => {
     const {component, updateAuthComponent} = useContext(NavContext);
     const router = useRouter();
+    const { data: session, status } = useSession();
+
+    useEffect(()=>{
+        if(status !== "loading"){
+            if(session?.user){
+                console.log("2");
+                router.replace(dashBoardRoutes.dashboard);
+            }
+        }
+    },[session, status]);
     
     return (
         <div>

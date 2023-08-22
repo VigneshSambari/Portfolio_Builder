@@ -1,7 +1,23 @@
-import NavBar from "@components/navbar/NavBar"
-import SideBar from "@components/SideBar"
+"use client"
+
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
+
+import SideBar from "@components/dashboard/SideBar"
 
 const DashBoard = () => {
+    const { data: session, status } = useSession();
+    const router = useRouter();
+
+    useEffect(()=>{
+        if(status !== "loading"){
+            if(!session?.user ){
+                router.replace("/");
+            }
+        }
+    },[status]);
+
     return (
         <div className="flex flex-row">
             <SideBar />

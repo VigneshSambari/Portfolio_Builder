@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 
-import { NavContext } from "@context_handler/nav_context";
+import { NavContext } from "@context_provider/nav_context";
 import { logoUrl } from "@public";
 
 const NavBar = () => {

@@ -1,5 +1,9 @@
 export const LandingPageRoutes = {
     landingPage : "/",
-    signin: "/signin",
-    signup: "/signup",
+    signin: "/?component=signin",
+    signup: "/?component=signup",
+}
+
+export const dashBoardRoutes = {
+    dashboard: "/dashboard",
 }
