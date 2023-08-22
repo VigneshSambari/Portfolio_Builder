@@ -7,6 +7,8 @@ import Success from "./landing_page/success.json";
 import Welcome1 from "./landing_page/welcome1.json";
 import CreateAnim from "./landing_page/create_anim.json";
 
+import Loading1 from "./globals/loading1.json";
+
 export {
     HelloAnim,
     Discover,
@@ -14,5 +16,6 @@ export {
     EditAnim1,
     Present,
     Success,
-    CreateAnim
+    CreateAnim,
+    Loading1
 }

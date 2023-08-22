@@ -10,7 +10,6 @@ const NavContextProvider = ({ children }) => {
 
   const updateAuthComponent = (newValue) => {
     setauthComponent(newValue);
-    console.log(newValue);
   };
 
   const context = { ...authComponent, updateAuthComponent };

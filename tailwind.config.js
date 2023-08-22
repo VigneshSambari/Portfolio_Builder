@@ -13,7 +13,8 @@ module.exports = {
         nunito: ['Nunito Sans'],
         poppins: ['Poppins'],
         inter: ['Inter'],
-        andika: ['Andika']
+        andika: ['Andika'],
+        caveat: ['Caveat'],
       },
       colors: {
         "primary-color": "#B98DFE",

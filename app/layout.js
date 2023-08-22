@@ -1,3 +1,5 @@
+import Provider from "@components/Provider";
+import NavigatornWrapper from "@components/navigation_wrapper/NavigatorWrapper";
 import "@styles/globals.css";
 
 
@@ -10,14 +12,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-          <div className="main">
-            <div className="gradient">
-            </div>
-          </div>
+          <Provider>
+            <NavigatornWrapper>
+              <div className="main">
+                <div className="gradient">
+                </div>
+              </div>
 
-          <main className='app'>
-            {children}
-        </main>
+              <main className='app'>
+                {children}
+              </main>
+            </NavigatornWrapper>
+          </Provider>
       </body>
     </html>
   )

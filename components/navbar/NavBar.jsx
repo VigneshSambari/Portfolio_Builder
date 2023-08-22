@@ -1,8 +1,11 @@
 "use client";
-import { NavContext } from "@context_handler/nav_context";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
+
+import { NavContext } from "@context_provider/nav_context";
+import { logoUrl } from "@public";
 
 const NavBar = () => {
     const {component, updateAuthComponent} = useContext(NavContext);
@@ -26,14 +29,13 @@ const NavBar = () => {
             component: route,
         });
         router.push(`/?component=${route}`);
-        console.log(router.query);
     }
 
     return (
         <div className="navbar">
             <div className="flex flex-1">
                 <Link href="/" className="cursor-pointer">
-                    <img src="/logo/logo.svg" placeholder="logo" 
+                    <img src={logoUrl} placeholder="logo" 
                         className="sm:w-36 w-24 object-contain"
                     />
                 </Link>

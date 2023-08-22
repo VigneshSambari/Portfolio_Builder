@@ -1,20 +1,33 @@
 "use client";
 
 import { useContext, useEffect, useState } from "react";
-import { AiOutlineCloseCircle } from "react-icons/ai/index.esm";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 import { Discover,Present,HelloAnim,EditAnim,EditAnim1,Success,CreateAnim } from "@assets";
 import CarouselSlider from "./CarousalSlider";
-import LottieAnim from "@components/utils/LottieAnim";
 import { landingPageLiterals } from "@constants";
-import SignUp from "@components/sign_up/Signup";
-import { NavContext } from "@context_handler/nav_context";
+import SignUp from "@components/auth/sign_up/SignUp";
+import { NavContext } from "@context_provider/nav_context";
+import { entryScreenBackground } from "@public";
+import SignIn from "@components/auth/sign_in/SignIn";
+import { dashBoardRoutes } from "@constants/routeHelpers";
+
 
 
 const LandingPage = () => {
     const {component, updateAuthComponent} = useContext(NavContext);
     const router = useRouter();
+    const { data: session, status } = useSession();
+
+    useEffect(()=>{
+        if(status !== "loading"){
+            if(session?.user){
+                console.log("2");
+                router.replace(dashBoardRoutes.dashboard);
+            }
+        }
+    },[session, status]);
     
     return (
         <div>
@@ -35,14 +48,12 @@ const LandingPage = () => {
                 
             </div>
             <div>
-                <img src="/images/landing_page/background_2.jpeg" 
+                <img src={entryScreenBackground} 
                     className="fixed right-0 top-0 bottom-0 w-full h-full -z-10"
                 />
             </div>
-            {component!=="signup"?<></>:
-            <div className={`auth-overlay relative`}>
-                <SignUp />
-            </div>}
+            {component=="signup" && <div className={`auth-overlay relative`}><SignUp /></div>}
+            {component=="signin" && <div className={`auth-overlay relative`}><SignIn /></div>}
         </div>
         
         

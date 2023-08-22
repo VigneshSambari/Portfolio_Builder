@@ -2,18 +2,24 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-import { BsArrowLeftShort, BsSearch, BsPerson, } from './../node_modules/react-icons/bs/index.esm';
-import { RiDashboard2Fill, RiPaypalFill, } from './../node_modules/react-icons/ri/index.esm';
-import { AiOutlineLogout, AiOutlineSetting } from './../node_modules/react-icons/ai/index.esm';
+import { BsArrowLeftShort, BsSearch, BsPerson, } from 'react-icons/bs/index.esm';
+import { RiDashboard2Fill, RiPaypalFill, } from 'react-icons/ri/index.esm';
+import { AiOutlineLogout, AiOutlineSetting } from 'react-icons/ai/index.esm';
+import { logoUrl } from "@public";
+import { signOut } from 'next-auth/react';
+
+
 const SideBar = () => {
+
     const [isSideBarOpen, setSideBarOpen] = useState(true);
+
     const Menus = [
         {title: "Dashboard", icon: <RiDashboard2Fill />},
         {title: "Browse Templates",spacing:true, icon: <BsSearch />},
         {title: "Payment History", icon: <RiPaypalFill />},
         {title: "Profile", icon: <BsPerson />},
         {title: "Settings", icon: <AiOutlineSetting />},
-        {title: "Logout", icon: <AiOutlineLogout />}
+        {title: "Logout", icon: <AiOutlineLogout />, key: "logout"}
     ];
 
     return (
@@ -26,7 +32,7 @@ const SideBar = () => {
                 />
                 <div className='flex flex-col justify-start items-center  m-auto'>
                     <Link href="/">
-                        <img src="/logo/logo.svg"  className="w-36 h-8 object-contain" placeholder='logo'/>
+                        <img src={logoUrl}  className="w-36 h-8 object-contain" placeholder='logo'/>
                     </Link>
                 </div>
                 <div className="mt-5">
@@ -34,13 +40,23 @@ const SideBar = () => {
                         {
                             Menus.map((menu,index)=>(
                                 <>
-                                    <li className={`rounded-md text-white hover:bg-primary-light-color hover:bg-opacity-40
+                                    <li key={index} className={`rounded-md text-white hover:bg-primary-light-color 
+                                        hover:bg-opacity-40
                                         p-2 gap-x-3 items-center flex cursor-pointer ${menu.spacing?"mb-6":""}`}
+                                        onClick={async ()=>{
+                                            if(menu.key==="logout"){
+                                                signOut();
+                                                
+                                            }
+                                        }}
+                                        
                                     >
-                                        <span className='text-[20px] flex float-left'>
+                                        <span key={index} className='text-[20px] flex float-left'>
                                             {menu.icon}
                                         </span>
-                                        <span className={` flex-1 ${!isSideBarOpen&&"hidden"} duration-200 text-base`}>{menu.title}</span>
+                                        <span key={index} className={` flex-1 ${!isSideBarOpen&&"hidden"} duration-200 text-base`}>
+                                            {menu.title}
+                                        </span>
                                     </li>
                                 </>
                             ))
