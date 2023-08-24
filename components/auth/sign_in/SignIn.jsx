@@ -27,7 +27,7 @@ const SignIn = () => {
             <OverlayCloseButton />
             <SignInUpBody welcomeText={signInWelcomeText} authStateFlag={false} 
                 signInUpTitle={signInTitle} FormComponent={<SignInForm />} 
-                onSubmit={signInUser}  errorText={error}
+                onSubmit={signInUser}  errorText={error} 
             />
         </>
     );

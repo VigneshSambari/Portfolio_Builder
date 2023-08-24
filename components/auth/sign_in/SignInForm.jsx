@@ -3,7 +3,7 @@ import { SignInFieldsContext } from "@context_provider/signin_fields_context";
 import { useContext } from "react";
 
 const SignInForm = () => {
-    const {signInComponent, updateSignInComponent} = useContext(SignInFieldsContext);
+    const {signInComponent, updateSignInComponent, inpu} = useContext(SignInFieldsContext);
 
     function onInputChange({name,value}) {
         updateSignInComponent(

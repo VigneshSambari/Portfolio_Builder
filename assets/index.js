@@ -8,6 +8,10 @@ import Welcome1 from "./landing_page/welcome1.json";
 import CreateAnim from "./landing_page/create_anim.json";
 
 import Loading1 from "./globals/loading1.json";
+import Loading2 from "./globals/loading2.json";
+import Loading3 from "./globals/loading3.json";
+import Loading4 from "./globals/loading4.json";
+import Loading5 from "./globals/loading4.json";
 
 export {
     HelloAnim,
@@ -17,5 +21,9 @@ export {
     Present,
     Success,
     CreateAnim,
-    Loading1
+    Loading1,
+    Loading2,
+    Loading3,
+    Loading4,
+    Loading5,
 }
