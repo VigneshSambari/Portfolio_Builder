@@ -28,7 +28,7 @@ const NavBar = () => {
         component!=route&&updateAuthComponent({
             component: route,
         });
-        router.push(`/?component=${route}`);
+        router.replace(`/?component=${route}`);
     }
 
     return (

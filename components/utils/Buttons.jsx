@@ -9,9 +9,9 @@ export const GithubLinkedin = (props) => {
 }
 
 
-export const SignInUpButtons = ({title}) => {
+export const SignInUpButtons = ({title, onSubmit}) => {
     return (
-        <div className="flex jusitfy-start">
+        <div className="flex jusitfy-start" onClick={()=>onSubmit()}>
             <span className="px-16 py-1.5 rounded-md text-white font-bold
                     cursor-pointer bg-pink-500 text-sm"
             >

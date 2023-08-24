@@ -6,15 +6,13 @@ import { useContext, useEffect } from "react";
 import Lottie from "lottie-react";
 
 import { Loading1 } from "@assets";
-import { NavContext } from "@context_provider/nav_context";
 
 const NavigationWrapper = ({children}) => {
     const {data: session, status} = useSession();
 
-    // const router = useRouter();
+    const router = useRouter();
 
     useEffect(()=>{
-        console.log(window.location.pathname)
         if(status !== "loading"){ 
             if(!session?.user){
                 router.replace("/");
