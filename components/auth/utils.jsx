@@ -3,7 +3,8 @@
 import { useRouter } from "next/navigation";
 import { NavContext } from "@context_provider/nav_context";
 import { useContext, useEffect, useState } from "react";
-import { AiOutlineGoogle, AiFillLinkedin, AiFillGithub, AiOutlineClose } from "react-icons/ai/index.esm";
+import { AiOutlineGoogle, AiFillLinkedin, AiFillGithub, AiOutlineClose, } from "react-icons/ai/index.esm";
+import { BiErrorCircle } from "react-icons/bi/index.esm"
 import { abstractBackground } from "@public";
 import { signUpTermsAndPolicy } from "@constants";
 import { GithubLinkedin, SignInUpButtons } from "@components/utils/Buttons";
@@ -11,11 +12,12 @@ import { OrBorderLine } from "@components/utils/Borders";
 import { getProviders, signIn } from "next-auth/react";
 
 
-export const SignInUpBody = ({welcomeText, authStateFlag, signInUpTitle, FormComponent}) => {
+export const SignInUpBody = ({welcomeText, authStateFlag, signInUpTitle, 
+                                            FormComponent, onSubmit, errorText}) => {
     const router = useRouter();
     const {component, updateAuthComponent} = useContext(NavContext);
 
-    const [ providers, setProviders ] = useState(null);
+    const [ providers, setProviders ] = useState(null); 
 
     useEffect(()=>{
         const setUpProviders = async () => {
@@ -30,7 +32,7 @@ export const SignInUpBody = ({welcomeText, authStateFlag, signInUpTitle, FormCom
         component!=route&&updateAuthComponent({
             component: route,
         });
-        router.push(`/?component=${route}`);
+        router.replace(`/?component=${route}`);
     }
 
     return (
@@ -70,7 +72,7 @@ export const SignInUpBody = ({welcomeText, authStateFlag, signInUpTitle, FormCom
                             <div className="flex flex-row relative justify-items-center gap-2 font-bold">
                                 <AiOutlineGoogle className="absolute left-0 top-0 bottom-0 text-xl" /> 
                                 <span className="text-sm ">
-                                    {authStateFlag?"Sign up with Google":"Sign in with Google"}
+                                    Sign in with Google
                                 </span>
                             </div>
                         </div>
@@ -85,7 +87,10 @@ export const SignInUpBody = ({welcomeText, authStateFlag, signInUpTitle, FormCom
                             {signUpTermsAndPolicy}
                         </label>
                     </div>
-                    <SignInUpButtons title={authStateFlag?"Create Account":"Sign In"}/>
+                    <div className="text-red-500 flex flex-row font-semibold items-center font-poppins text-sm">
+                        {errorText && <BiErrorCircle />} &nbsp; {errorText}
+                    </div>
+                    <SignInUpButtons title={authStateFlag?"Create Account":"Sign In"} onSubmit={onSubmit}/>
                 </div>
             </div>
         </div>        
@@ -97,7 +102,7 @@ export const OverlayCloseButton = () => {
     const {component, updateAuthComponent} = useContext(NavContext);
 
     return (
-        <div className="absolute right-5 top-5 text-white text-3xl 
+        <div className="absolute right-5 top-5 text-white shadow-md z-40 bg-black bg-opacity-30 rounded-full text-3xl 
             cursor-pointer"
             onClick={()=>{
                 updateAuthComponent({component: null});

@@ -9,6 +9,7 @@ const NavContextProvider = ({ children }) => {
   });
 
   const updateAuthComponent = (newValue) => {
+    console.log(newValue);
     setauthComponent(newValue);
   };
 

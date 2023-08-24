@@ -39,8 +39,8 @@ const SideBar = () => {
                     <ul>
                         {
                             Menus.map((menu,index)=>(
-                                <>
-                                    <li key={index} className={`rounded-md text-white hover:bg-primary-light-color 
+                                <div key={index}>
+                                    <li className={`rounded-md text-white hover:bg-primary-light-color 
                                         hover:bg-opacity-40
                                         p-2 gap-x-3 items-center flex cursor-pointer ${menu.spacing?"mb-6":""}`}
                                         onClick={async ()=>{
@@ -51,14 +51,14 @@ const SideBar = () => {
                                         }}
                                         
                                     >
-                                        <span key={index} className='text-[20px] flex float-left'>
+                                        <span className='text-[20px] flex float-left'>
                                             {menu.icon}
                                         </span>
-                                        <span key={index} className={` flex-1 ${!isSideBarOpen&&"hidden"} duration-200 text-base`}>
+                                        <span className={` flex-1 ${!isSideBarOpen&&"hidden"} duration-200 text-base`}>
                                             {menu.title}
                                         </span>
                                     </li>
-                                </>
+                                </div>
                             ))
                         }
                     </ul>
