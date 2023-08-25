@@ -1,4 +1,4 @@
-import Provider from "@components/Provider";
+import Provider from "@components/providers/Provider";
 import NavigatornWrapper from "@components/navigation_wrapper/NavigatorWrapper";
 import "@styles/globals.css";
 

@@ -26,7 +26,7 @@ const DashBoard = () => {
               });
               
             const data = await response.json();
-            console.log(data);
+
           };
         
         fetchPosts();

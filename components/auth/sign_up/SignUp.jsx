@@ -10,7 +10,7 @@ import { SignUpFieldsContext } from "@context_provider/signup_fields_context";
 import { NavContext } from "@context_provider/nav_context";
 
 const SignUp = () => {
-    const { onSubmit, error, } = useContext(SignUpFieldsContext);
+    const { onSubmit, error, isLoading } = useContext(SignUpFieldsContext);
     const { updateAuthComponent } = useContext(NavContext);
     const router = useRouter();
 
@@ -31,7 +31,7 @@ const SignUp = () => {
             <OverlayCloseButton />
             <SignInUpBody welcomeText={signUpWelcomeText} authStateFlag={true} 
                 signInUpTitle={signUpTitle} FormComponent={<SignUpForm />} 
-                onSubmit={signUpUser} errorText={error} 
+                onSubmit={signUpUser} errorText={error} isLoading={isLoading} 
             />
         </>
     );

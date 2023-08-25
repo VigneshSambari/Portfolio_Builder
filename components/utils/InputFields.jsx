@@ -2,7 +2,7 @@ export const SimpleInputField = ({id, type, placeholder, title, onChange, value,
     return(
         <div className="flex flex-wrap -mx-3 mb-3">
             <div className="w-full px-3">
-            <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor={id}>
+            <label className="block tracking-wide text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
                     {title}
             </label>
             <input className="appearance-none block w-full bg-primary-light-color bg-opacity-40 text-gray-700 border 
@@ -10,7 +10,7 @@ export const SimpleInputField = ({id, type, placeholder, title, onChange, value,
                  focus:border-dark-purple focus:border-1" id={id} type={type} placeholder={placeholder} value={value??""}
                   onChange={(e)=>onChange({name:id, value:e.target.value.trim()})} 
             />
-            {error && <div className="text-red-500 font-light font-poppins text-sm">{error}</div>}
+            {error && <div className="text-red-500 font-semibold text-[12px]">{error}</div>}
             </div>
         </div>
     );
@@ -29,7 +29,7 @@ export const ParallelInputFields = ({id, title, type, placeholder, onChange, err
                 focus:border-dark-purple focus:border-1" id={id} type={type} placeholder={placeholder} 
                 onChange={(e)=>onChange({name:id, value:e.target.value.trim()})} 
             />
-            {error && <div className="text-red-500  text-[7px]">{error}</div>}
+            {error && <div className="text-red-500 font-semibold text-[12px]">{error}</div>}
         </div>
     );
 }

@@ -20,7 +20,7 @@ const handler = NextAuth({
             
             async authorize(credentials){
                 const {email, password} = credentials;
-                console.log("authorize")
+
                 try{
                     await connectToDB();
 
@@ -39,7 +39,7 @@ const handler = NextAuth({
                             message: "Invalid email or password!",
                         }
                     }
-                    console.log("before return");
+
                     return user;
                 }
                 catch(err){
@@ -59,14 +59,14 @@ const handler = NextAuth({
 
     callbacks:{
         async session({session}){
-            console.log("session")
+   
             const sessionUser = await User.findOne({
                 email: session.user.email,
             })
     
             session.user.id = sessionUser._id.toString();
             session.user.name = sessionUser.name;
-            console.log(session);
+    
             return session; 
         },
         async signIn({profile,user}){

@@ -33,40 +33,42 @@ const SignUpFieldsContextProvider = ({ children }) => {
   const [ isLoading, setIsLoading ] = useState(false);
 
   const onSubmit = async ({callback}) => {
-    console.log(signUpComponent);
+  
     let emailValid = validateEmail(signUpComponent.email);
     let passwordValid = validatePassword(signUpComponent.password);
     let inValid=false;
-   // if(emailValid) {
-    //  setInputErrors({
-    //    ...inputErrors,
-     //   email: emailValid,
-     // })
-     // inValid=true;
-    //}
-   // if(passwordValid) {
-    //  setInputErrors({
-    //    ...inputErrors,
-    //    password: passwordValid,
-    //  })
-    //  inValid=true;
-    //}
-    if(!signUpComponent.firstName){
+    
+   if(emailValid||passwordValid||!signUpComponent.firstName||!signUpComponent.lastName) {
+      let emailError=null,passwordError=null,fNError=null,lNError=null;
+      if(emailValid) {
+          emailError = emailValid; inValid=true;
+      }
+      if(passwordValid) {
+          passwordError = passwordValid;  inValid=true;
+      }
+      if(!signUpComponent.firstName){
+          fNError = "First name should not be empty";  inValid=true;
+      }
+      if(!signUpComponent.lastName){
+          lNError = "Last name should not be empty";  inValid=true;
+      }
       setInputErrors({
-        ...inputErrors,
-        firstName: "First Name should not be empty!",
+        email: emailError,
+        password: passwordError,
+        firstName: fNError,
+        lastName: lNError,
       })
-      inValid=true;
     }
-    if(!signUpComponent.lastName){
-      setInputErrors({
-        ...inputErrors,
-        lastName: "Last Name should not be empty!",
-      })
-      inValid=true;
-    }
-    console.log(inputErrors);
+
     if(inValid) return;
+
+       
+    setInputErrors({
+      email: null,
+      password: null,
+      firstName: null,
+      lastName: null,
+    })
 
     setIsLoading(true);
     try{
@@ -89,7 +91,7 @@ const SignUpFieldsContextProvider = ({ children }) => {
         });
         callback();
       } else {
-        console.log(response);
+
         setError(response["message"]);
       }
       setIsLoading(false);

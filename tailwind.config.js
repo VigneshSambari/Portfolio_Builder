@@ -15,6 +15,7 @@ module.exports = {
         inter: ['Inter'],
         andika: ['Andika'],
         caveat: ['Caveat'],
+        courgette: ['Courgette'],
       },
       colors: {
         "primary-color": "#B98DFE",

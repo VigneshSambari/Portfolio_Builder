@@ -14,16 +14,35 @@ class CarouselSlider extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
-      if (this.state.paused === false) {
+    this.startSlideshowInterval();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval); // Clear the interval when the component unmounts
+  }
+
+  startSlideshowInterval() {
+    this.interval = setInterval(() => {
+      if (!this.state.paused) {
         let newSlide =
           this.state.currentSlide === this.props.mediaItems.length - 1
             ? 0
             : this.state.currentSlide + 1;
         this.setState({ currentSlide: newSlide });
       }
-    }, 5000);
+    }, 10000);
   }
+
+  restartSlideshow = () => {
+    this.setState({ paused: false, currentSlide: 0 });
+    clearInterval(this.interval); // Clear the existing interval
+    this.startSlideshowInterval(); // Start a new interval
+  };
+
+  pauseSlideshow = () => {
+    this.setState({ paused: true });
+    clearInterval(this.interval);
+  };
 
   nextSlide = () => {
     let newSlide =
@@ -72,9 +91,26 @@ class CarouselSlider extends Component {
                     this.setState({ paused: false });
                   }}
                 />
+                
               );
             })}
           </Swipe>
+
+
+          <div className="absolute w-full flex justify-center bottom-7">
+            {this.props.captions.map((element, index) => {
+              return (
+                <div
+                className={
+                  index === this.state.currentSlide
+                    ? "block text-yellow-500 font-semibold font-andika font-md"
+                    : "hidden"
+                }
+                  key={index}
+                >{element}</div>
+              );
+            })}
+          </div>
 
           <div className="absolute w-full flex justify-center bottom-0">
             {this.props.mediaItems.map((element, index) => {

@@ -11,7 +11,7 @@ import { dashBoardRoutes } from "@constants/routeHelpers";
 
 
 const SignIn = () => {
-    const { onSubmit, error } = useContext(SignInFieldsContext);
+    const { onSubmit, error,isLoading } = useContext(SignInFieldsContext);
     const router = useRouter();
 
     function callback(){
@@ -27,7 +27,7 @@ const SignIn = () => {
             <OverlayCloseButton />
             <SignInUpBody welcomeText={signInWelcomeText} authStateFlag={false} 
                 signInUpTitle={signInTitle} FormComponent={<SignInForm />} 
-                onSubmit={signInUser}  errorText={error} 
+                onSubmit={signInUser}  errorText={error} isLoading={isLoading}
             />
         </>
     );
