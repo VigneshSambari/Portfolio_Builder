@@ -2,7 +2,7 @@
 
 import  Lottie  from 'lottie-react';
 
-import { Loading1 } from '@assets';
+import { Loading5, Loading1 } from '@assets';
 
 export const FullLoader = () => {
     return (
@@ -12,3 +12,12 @@ export const FullLoader = () => {
     );
 }
 
+
+export const InsideButtonLoader = () => {
+    return (
+        <div className="justify-items-center flex">
+            <Lottie  animationData={Loading5} className="max-w-[65px] max-h-[65px] 
+                    object-contain "/>
+        </div>
+    );
+}

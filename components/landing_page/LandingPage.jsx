@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
-import { Discover,Present,HelloAnim,EditAnim,EditAnim1,Success,CreateAnim } from "@assets";
 import CarouselSlider from "./CarousalSlider";
 import { landingPageLiterals } from "@constants";
 import SignUp from "@components/auth/sign_up/SignUp";
@@ -34,17 +33,20 @@ const LandingPage = () => {
             {
                 <div>
                     <div className={`absolute flex flex-col lg:flex-row w-full px-10 py-5 justify-items-center`}>
-                        <div className="flex flex-col w-full sm:w-4/5 md:w-3/5 lg-w-1/2 justify-items-center px-20 gap-10 m-auto">
-                            <div className="flex text-bold text-black text-2xl">
+                        <div className="flex flex-col w-full lg:w-1/2 justify-items-center
+                                pt-10 px-3 sm:px-6 md:px-12 gap-10  m-auto">
+                            <div>
                                 {landingPageLiterals.heading}
                             </div>
-                            <div>
+                            <div className="text-yellow-600">
                                 {landingPageLiterals.subHeading}
                             </div>
                         </div>
-                        <div className="relative flex w-full sm:w-1/5 md:w-2/5 lg-w-1/2 justify-items-center m-auto">
+                        <div className="relative flex w-full sm:w-1/5 md:w-2/5 lg-w-1/2 font-andika text-yellow-500 
+                                        justify-items-center m-auto">
                             <CarouselSlider 
-                                mediaItems={[Discover,Present,HelloAnim,EditAnim,EditAnim1,Success,CreateAnim]}
+                                mediaItems={landingPageLiterals.carousalAnimations}
+                                captions={landingPageLiterals.carousalCaptions}
                             />
                         </div>
                         

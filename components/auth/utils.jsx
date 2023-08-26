@@ -13,7 +13,7 @@ import { getProviders, signIn } from "next-auth/react";
 
 
 export const SignInUpBody = ({welcomeText, authStateFlag, signInUpTitle, 
-                                            FormComponent, onSubmit, errorText}) => {
+                                    FormComponent, onSubmit, errorText, isLoading}) => {
     const router = useRouter();
     const {component, updateAuthComponent} = useContext(NavContext);
 
@@ -87,10 +87,12 @@ export const SignInUpBody = ({welcomeText, authStateFlag, signInUpTitle,
                             {signUpTermsAndPolicy}
                         </label>
                     </div>
-                    <div className="text-red-500 flex flex-row font-semibold items-center font-poppins text-sm">
+                    {errorText && <div className="text-red-500 flex flex-row font-semibold items-center font-poppins text-sm">
                         {errorText && <BiErrorCircle />} &nbsp; {errorText}
-                    </div>
-                    <SignInUpButtons title={authStateFlag?"Create Account":"Sign In"} onSubmit={onSubmit}/>
+                    </div>}
+                    <SignInUpButtons title={authStateFlag?"Create Account":"Sign In"} 
+                        onSubmit={onSubmit} isLoading={isLoading}
+                    />
                 </div>
             </div>
         </div>        

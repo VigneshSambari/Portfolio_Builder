@@ -38,7 +38,7 @@ export const POST = async (request, { params }) => {
             const hashedPassword = await generateEncryptedPassword(password);
             
             const name = firstName + " " + lastName;
-            console.log(name);
+
             const result = await User.create({name:name, email, password: hashedPassword });
 
             return NextResponse.json(
@@ -47,7 +47,7 @@ export const POST = async (request, { params }) => {
             )
         }
         catch(err){
-            console.log(err);
+
             return NextResponse.json(
                 respondToError({
                     message: "Error creating user!",
@@ -61,7 +61,7 @@ export const POST = async (request, { params }) => {
      else if(type==="SIGNIN"){
 
         const {email, password} = request.body;
-        console.log(email, password);
+
         if (!email || !password ){
             return new Response(JSON.stringify(respondToError("Email and Password should not be empty")), 
                 {status: statusEnum.BAD_REQUEST}); 
@@ -91,7 +91,7 @@ export const POST = async (request, { params }) => {
                 {status: statusEnum.OK}); 
 
         } catch (err) {
-            console.log(err);
+
             return new Response(JSON.stringify(respondToError(err.message)), 
                 {status: statusEnum.BAD_REQUEST}); 
         }    
@@ -132,7 +132,7 @@ export const POST = async (request, { params }) => {
             return new Response(JSON.stringify(existingUser), 
                 {status: statusEnum.OK}); 
         } catch (err) {
-            console.log(err);
+
             return new Response(JSON.stringify(respondToError(err.message)), 
                 {status: statusEnum.BAD_REQUEST}); 
         }

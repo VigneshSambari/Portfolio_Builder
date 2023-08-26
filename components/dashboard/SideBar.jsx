@@ -14,7 +14,7 @@ const SideBar = () => {
     const [isSideBarOpen, setSideBarOpen] = useState(true);
 
     const Menus = [
-        {title: "Dashboard", icon: <RiDashboard2Fill />},
+        {title: "Home", icon: <RiDashboard2Fill />},
         {title: "Browse Templates",spacing:true, icon: <BsSearch />},
         {title: "Payment History", icon: <RiPaypalFill />},
         {title: "Profile", icon: <BsPerson />},

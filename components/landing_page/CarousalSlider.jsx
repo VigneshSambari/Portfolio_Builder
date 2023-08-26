@@ -106,4 +106,3 @@ class CarouselSlider extends Component {
 
 export default CarouselSlider;
 
-
