@@ -1,4 +1,4 @@
-import { Discover1, DesignAnim, EditAnim, DeployAnim, ShareAnim, CreateAnim } from "@assets";
+import { EditAnim,  } from "@assets";
 
 const headingText = <span className="flex justify-items-center text-center 
                         text-white font-bold text-3xl font-serif" >
@@ -12,15 +12,15 @@ const subHeadingText = <span className="flex justify-items-center text-2xl text-
     Whether you're an artist, designer, developer, writer, or any kind of creative professional, 
     we're here to help you tell your story in a captivating and memorable way.</span>
 
-const animations = [ Discover1, DesignAnim, EditAnim, CreateAnim, DeployAnim, ShareAnim, ];
+const animations = [  EditAnim, ];
 
 const carousalCaptions = [
-    "Discover various designs",
-    "Curate Your Digital Presence",
+    // "Discover various designs",
+    // "Curate Your Digital Presence",
     "Tailoring Every Detail to You",
-   "Create templates and showcase",
-    "Presenting Your Portfolio with Pride",
-    "Broadcasting Your Creative Journey",
+//    "Create templates and showcase",
+//     "Presenting Your Portfolio with Pride",
+//     "Broadcasting Your Creative Journey",
 ]
 
 export const landingPageLiterals = {
