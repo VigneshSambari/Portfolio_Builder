@@ -15,6 +15,7 @@ const SignIn = () => {
     const router = useRouter();
 
     function callback(){
+        console.log("router");
         router.replace(dashBoardRoutes.dashboard);
     }
 

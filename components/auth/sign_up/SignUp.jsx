@@ -19,6 +19,7 @@ const SignUp = () => {
         updateAuthComponent({
             component: "signin",
         });
+        console.log("router");
         router.replace(`/?component=signin`);
     }
 

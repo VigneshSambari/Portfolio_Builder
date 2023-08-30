@@ -1,8 +1,6 @@
 "use client";
 import React, { Component } from "react";
 import Lottie from "lottie-react";
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import Swipe from "react-easy-swipe";
 
 class CarouselSlider extends Component {
   constructor(props) {
@@ -13,8 +11,10 @@ class CarouselSlider extends Component {
     };
   }
 
+  
+
   componentDidMount() {
-    setInterval(() => {
+    var timer=setInterval(() => {
       if (this.state.paused === false) {
         let newSlide =
           this.state.currentSlide === this.props.mediaItems.length - 1
@@ -23,6 +23,10 @@ class CarouselSlider extends Component {
         this.setState({ currentSlide: newSlide });
       }
     }, 5000);
+  }
+
+  componentWillUnmount(){
+    cancelTimeOut(timer);
   }
 
   nextSlide = () => {
@@ -54,7 +58,7 @@ class CarouselSlider extends Component {
             className="absolute left-0 text-3xl inset-y-1/2 text-white cursor-pointer opacity-20"
           /> */}
 
-          <Swipe onSwipeLeft={this.nextSlide} onSwipeRight={this.prevSlide}>
+          <div>
             {this.props.mediaItems.map((slide, index) => {
               return (
                 <Lottie
@@ -74,7 +78,22 @@ class CarouselSlider extends Component {
                 />
               );
             })}
-          </Swipe>
+          </div>
+
+          <div className="absolute w-full flex justify-center bottom-7">
+            {this.props.captions.map((element, index) => {
+              return (
+                <div
+                className={
+                  index === this.state.currentSlide
+                    ? "block text-yellow-500 font-semibold font-andika font-md"
+                    : "hidden"
+                }
+                  key={index}
+                >{element}</div>
+              );
+            })}
+          </div>
 
           <div className="absolute w-full flex justify-center bottom-0">
             {this.props.mediaItems.map((element, index) => {

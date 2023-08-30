@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
-import CarouselSlider from "./CarousalSlider";
 import { landingPageLiterals } from "@constants";
 import SignUp from "@components/auth/sign_up/SignUp";
 import { NavContext } from "@context_provider/nav_context";
@@ -23,6 +22,7 @@ const LandingPage = () => {
     useEffect(()=>{
         if(status !== "loading"){
             if(session?.user){
+                console.log("router");
                 router.replace(dashBoardRoutes.dashboard);
             }
         }
@@ -44,10 +44,10 @@ const LandingPage = () => {
                         </div>
                         <div className="relative flex w-full sm:w-1/5 md:w-2/5 lg-w-1/2 font-andika text-yellow-500 
                                         justify-items-center m-auto">
-                            <CarouselSlider 
+                            {/* <CarouselSlider 
                                 mediaItems={landingPageLiterals.carousalAnimations}
                                 captions={landingPageLiterals.carousalCaptions}
-                            />
+                            /> */}
                         </div>
                         
                     </div>

@@ -29,7 +29,7 @@ const NavigationWrapper = ({children}) => {
 
     return (
         <>
-           {status==="loading"?loader:<></>}
+          
            {children}
         </>
     );

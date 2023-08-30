@@ -32,6 +32,7 @@ export const SignInUpBody = ({welcomeText, authStateFlag, signInUpTitle,
         component!=route&&updateAuthComponent({
             component: route,
         });
+        console.log("router");
         router.replace(`/?component=${route}`);
     }
 
@@ -108,6 +109,7 @@ export const OverlayCloseButton = () => {
             cursor-pointer"
             onClick={()=>{
                 updateAuthComponent({component: null});
+                console.log("router");
                 router.replace("/");
             }}
         >

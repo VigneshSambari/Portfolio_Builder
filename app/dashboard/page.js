@@ -13,26 +13,10 @@ const DashBoard = () => {
     const [ isLoading, setIsLoading ] = useState(true);
 
     useEffect(()=>{
-        const fetchPosts = async () => {
-            const response = await fetch(`/api/auth/credentials?type=SIGNUP`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  email: "v@dsfgmsaisl.com",
-                  password: "1234",
-                }),
-              });
-              
-            const data = await response.json();
-
-          };
-        
-        fetchPosts();
 
         if(status !== "loading"){
             if(!session?.user ){
+                console.log("router");
                 router.replace("/");
             }
             else{
